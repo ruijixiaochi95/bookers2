@@ -1,10 +1,11 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
-  
   devise_for :users
   devise_scope :user do
-    post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
-  end 
-  get 'homes/top'
+    post "users/guest_sign_in", to: "users/sessions#guest_sign_in"
+  end
+  get "homes/top"
   root to: "homes#top"
   get "/home/about" => "homes#about", as: "about"
   resources :books, only: [:index, :show, :create, :edit, :update, :destroy]
